@@ -1,3 +1,301 @@
 *, *:before, *:after {
   box-sizing: border-box;
 }
+
+body {
+	height: 100%;
+}
+.box-game {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(#86fcff 49%, #4bef58 50%);
+}
+.ui {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.7);
+	&.visible {
+		display: block;
+	}
+}
+.game-over {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.7);
+	&.visible {
+		display: block;
+	}
+}
+.fire-button {
+	position: absolute;
+	top:calc(( 100vh / 2) + 15vw );
+	left: 44vw;
+	width: 12vw;
+	height: 12vw;
+	min-height: 65px;
+	min-width: 65px;
+	background: tomato;
+	border-radius: 100%;
+	color: rgba(0,0,0,0.8);
+	text-align: center;
+	outline: none;
+	border: 0px solid white;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+	font-family: georgia;
+	font-size: 3vw;
+	&:hover {
+		box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	}
+	&:active {
+		background: red;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.0);
+		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.7);
+	}
+}
+
+/*#dragon-a, #dragon-b, #dragon-c, #dragon-d, #dragon-e,
+#dragon-a-scia, #dragon-b-scia, #dragon-c-scia, #dragon-d-scia, #dragon-e-scia {
+	transition: stroke-dashoffset 3.5s;
+}*/
+
+//dragon-a animation
+@keyframes dragon-fly {
+    0% { stroke-dashoffset: auto; }
+    100% { stroke-dashoffset: 0px; }
+}
+@keyframes dragon-fly-scia {
+    0% { stroke-dashoffset: auto; }
+    100% { stroke-dashoffset: 50px; }
+}
+@keyframes bullet {
+    0% { stroke-dashoffset: -640px; }
+    100% { stroke-dashoffset: 0px; }
+}
+@keyframes bullet-scia {
+    0% { stroke-dashoffset: -650px; }
+    100% { stroke-dashoffset: -10px; }
+}
+@keyframes heart {
+    0% { fill: crimson;}
+		10% { fill: none; }
+		15% { fill: crimson;}
+		25% { fill: none; }
+		30% { fill: crimson;}
+		40% { fill: none; }
+		45% { fill: crimson;}
+		55% { fill: none; }
+		56% { transform: scale(1,1); }
+    100% { transform: scale(0,0); }
+}
+@keyframes tower-explosion {
+    0% {  transform: scale(1,1); }
+		10% { transform: scale(0,0); }
+		20% { transform: scale(1.6,1.6); }
+		30% { transform: scale(0.3,0.3); }
+		40% { transform: scale(1,1); }
+		50% { transform: scale(0,0); }
+		60% { transform: scale(1.8,1.8); }
+		70% { transform: scale(0.2,0.2); }
+		80% { transform: scale(1.1,1.1); }
+		90% { transform: scale(0.5,0.5); }
+		95% { transform: scale(1,1); }	
+    100% { transform: scale(0,0); }
+}
+
+#tower-explosion {
+	display: none;
+	width: 10vh;
+	height: 10vh;
+	position: absolute;
+	top: 48vh;
+	left:13vw;
+	background: red;
+	border-radius: 100%;
+	transform-origin: 50% 50%;
+	&.go {
+		display: block;
+		animation: tower-explosion 0.5s ease-in 2;	
+	}
+}
+
+#heart-1,
+#heart-2,
+#heart-3 {
+	transform-origin: 0 -50vh;
+	&.go {
+		animation: heart 2s 1.2s;
+	}
+}
+
+#dragon-a {
+	stroke-dashoffset: 878px; stroke-dasharray: 918px;
+	&.fly {
+  	animation: dragon-fly 4.8s ease-in;
+	}
+}
+#dragon-a-scia {
+	stroke-dashoffset: 918px; stroke-dasharray: 918px;
+	&.fly { 
+		animation: dragon-fly-scia 4.8s ease-in;
+	}
+}
+
+//dragon-b animation
+#dragon-b {
+	stroke-dashoffset: 762px; stroke-dasharray: 802px;
+	&.fly {
+  	animation: dragon-fly 4.8s ease-in;
+	}
+}
+#dragon-b-scia {
+	stroke-dashoffset: 802px; stroke-dasharray: 802px;
+	&.fly {
+  	animation: dragon-fly-scia 4.8s ease-in;
+	}
+}
+
+//dragon-c animation
+#dragon-c {
+	stroke-dashoffset: 835px; stroke-dasharray: 875px;
+	&.fly {
+  	animation: dragon-fly 4.8s ease-in;
+	}
+}
+#dragon-c-scia {
+	stroke-dashoffset: 875px; stroke-dasharray: 875px;
+	&.fly {
+  	animation: dragon-fly-scia 4.8s ease-in;
+	}
+}
+
+//dragon-d animation
+#dragon-d {
+	stroke-dashoffset: 955px; stroke-dasharray: 995px;
+	&.fly {
+  	animation: dragon-fly 4.8s ease-in;
+	}
+}
+#dragon-d-scia {
+	stroke-dashoffset: 995px; stroke-dasharray: 995px;
+	&.fly {
+  	animation: dragon-fly-scia 4.8s ease-in;
+	}
+}
+
+//dragon-e animation
+#dragon-e {
+	stroke-dashoffset: 1145px; stroke-dasharray: 1180px;
+	&.fly {
+  	animation: dragon-fly 4.8s ease-in;
+	}
+}
+#dragon-e-scia {
+	stroke-dashoffset: 1180px; stroke-dasharray: 1180px;
+	&.fly {
+  	animation: dragon-fly-scia 4.8s ease-in;
+	}
+}
+
+//bullet animation
+#bullet {
+	stroke-dashoffset: -640px; stroke-dasharray: 640px;
+	&.fire {
+		animation: bullet 1.5s cubic-bezier(.48,.78,.69,.18);
+	}
+}
+#bullet-scia {
+	stroke-dashoffset: -650px; stroke-dasharray: 640px;
+	&.fire {
+		animation: bullet-scia 1.5s cubic-bezier(.48,.78,.69,.18);
+	}
+}
+
+//castel animations
+.door { stroke-width: 10px; stroke-dashoffset: 0px; }
+svg {
+	&.king- {
+		.door { stroke-width: 16px; stroke-dashoffset: 0px; }
+		.king line, .king polyline { stroke-dashoffset: 0px; stroke-dasharray: 300px;}
+		.duke line, .duke polyline { stroke-dashoffset: 0px; stroke-dasharray: 300px;}
+		.marquees line, .marquees polyline { stroke-dashoffset: 0px; stroke-dasharray: 300px;}
+		.baron {
+			line, polyline {
+				stroke-dasharray: 300px;
+				stroke-dashoffset: 0px;
+			}
+		}
+		.knight {
+			.wall {
+				stroke-dasharray: 300px;
+				stroke-dashoffset: 290px;
+			}
+		}
+	}
+	&.duke- {
+		.duke line, .duke polyline { stroke-dashoffset: 0px; stroke-dasharray: 300px;}
+		.marquees line, .marquees polyline { stroke-dashoffset: 0px; stroke-dasharray: 300px;}
+		.baron {
+			line, polyline {
+				stroke-dasharray: 300px;
+				stroke-dashoffset: 0px;
+			}
+		}
+		.knight {
+			.wall {
+				stroke-dasharray: 300px;
+				stroke-dashoffset: 290px;
+			}
+		}
+	}
+	&.marquees- {
+		.marquees line, .marquees polyline { stroke-dashoffset: 0px; stroke-dasharray: 300px;}
+		.baron {
+			line, polyline {
+				stroke-dasharray: 300px;
+				stroke-dashoffset: 0px;
+			}
+		}
+		.knight {
+			.wall {
+				stroke-dasharray: 300px;
+				stroke-dashoffset: 290px;
+			}
+		}
+	}
+	&.baron- {
+		.baron line, .baron polyline { stroke-dashoffset: 0px; stroke-dasharray: 300px;}
+		.knight {
+			.wall {
+				stroke-dasharray: 300px;
+				stroke-dashoffset: 0px;
+			}
+		}
+	}
+	&.knight- {
+		.door { stroke-width: 10px; stroke-dashoffset: 0px; }
+		.wall { stroke-dashoffset: -50px; }
+		.window { stroke-dashoffset: -49px; }
+	}
+}
+
+line,
+polyline {
+  stroke-dasharray: 300px;
+	stroke-dashoffset: -300px;
+	transition: stroke-dashoffset 1s;
+}
+
+.knight {
+		&.wall { stroke-dashoffset: 0px; }
+		&.window { stroke-dashoffset: -100px; }
+}
+

@@ -1,6 +1,6 @@
 import React from 'react'
-import SvgComponent from './components/svgcomponent.jsx'
+import BoxGameComponent from './components/boxgamecomponent.jsx'
 
 window.React = React;
 
-React.render(<SvgComponent />, document.getElementById('content'));
+React.render(<BoxGameComponent />, document.getElementById('content'));

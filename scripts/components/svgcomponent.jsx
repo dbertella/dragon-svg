@@ -1,11 +1,11 @@
 import React from 'react'
-import Sky from './skycomponent.jsx'
-import Ground from './groundcomponent.jsx'
-import Dragons from './dragonscomponent.jsx'
-import Castle from './castlecomponent.jsx'
-import Cannon from './cannoncomponent.jsx'
-import Hearts from './heartscomponent.jsx'
-import Bullet from './bulletcomponent.jsx'
+import Sky from './svgcomponents/skycomponent.jsx'
+import Ground from './svgcomponents/groundcomponent.jsx'
+import Dragons from './svgcomponents/dragonscomponent.jsx'
+import Castle from './svgcomponents/castlecomponent.jsx'
+import Cannon from './svgcomponents/cannoncomponent.jsx'
+import Hearts from './svgcomponents/heartscomponent.jsx'
+import Bullet from './svgcomponents/bulletcomponent.jsx'
 
 let SvgComponent = React.createClass({
   render: function() {
@@ -18,13 +18,8 @@ let SvgComponent = React.createClass({
         <Dragons />
         <Castle />
         <Cannon />
-
-
         <Bullet />
-        
         <Hearts />
-
-
       </svg>
     )
   }
