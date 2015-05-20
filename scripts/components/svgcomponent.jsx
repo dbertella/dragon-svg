@@ -8,8 +8,9 @@ import Hearts from './svgcomponents/heartscomponent.jsx'
 import Bullet from './svgcomponents/bulletcomponent.jsx'
 
 let SvgComponent = React.createClass({
+  
   render: function() {
-    
+
     return (
       
       <svg className="knight-" id="canvas" viewBox="-50 -176 850 430">
@@ -18,7 +19,7 @@ let SvgComponent = React.createClass({
         <Dragons />
         <Castle />
         <Cannon />
-        <Bullet />
+        <Bullet shot={ this.props.shot } />
         <Hearts />
       </svg>
     )

@@ -4,6 +4,25 @@ import Ui from './uicomponent.jsx'
 
 let BoxGameComponent = React.createClass({
 
+  getInitialState: function () {
+    return {
+      fired: false
+    }
+  },
+
+  fire: function () {
+    var self = this;
+    this.setState({
+      fired: true
+      
+    });
+    setTimeout(function () {
+        this.setState({
+          fired: false
+          
+        });
+    }.bind(this), 1600);
+  },
 
   render: function() {
     
@@ -20,9 +39,9 @@ let BoxGameComponent = React.createClass({
 
         <Ui />
         
-        <Svg />
+        <Svg shot={ this.state.fired }/>
         
-        <button className="fire-button">FIRE!</button>
+        <button className="fire-button" onClick={ this.fire }>FIRE!</button>
 
       </div>  
       
