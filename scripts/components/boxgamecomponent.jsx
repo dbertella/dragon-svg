@@ -19,7 +19,6 @@ let BoxGameComponent = React.createClass({
     setTimeout(function () {
         this.setState({
           fired: false
-          
         });
     }.bind(this), 1600);
   },
@@ -41,7 +40,7 @@ let BoxGameComponent = React.createClass({
         
         <Svg shot={ this.state.fired }/>
         
-        <button className="fire-button" onClick={ this.fire }>FIRE!</button>
+        <button className="fire-button" onClick={ this.fire } disabled={ this.state.fired }>FIRE!</button>
 
       </div>  
       

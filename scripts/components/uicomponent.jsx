@@ -19,9 +19,9 @@ let UiComponent = React.createClass({
 				display: 'none'
 			};
 		}
-
+		// add class visible to show the overlay
 		return (
-			<div className="ui visible" style={style}>
+			<div className="ui" style={style}>
 				<button id="up">up</button>
 				<button id="down">down</button><span></span><br />
 				<p>This game is made using only svg paths and dash-array/dash-offset CSS properties. The javascript code checks the shoots and toggles CSS classes</p>
