@@ -9,14 +9,30 @@ import Bullet from './svgcomponents/bulletcomponent.jsx'
 
 let SvgComponent = React.createClass({
   
+  getInitialState: function () {
+    return {
+      dragonNumber: Math.floor(Math.random() * 5)
+    }
+  },
+
+  componentDidMount: function () {
+    setTimeout(function () {
+      this.setState({
+        dragonNumber: Math.floor(Math.random() * 5)
+      });
+    }.bind(this), 5000);
+  },
+
   render: function() {
 
+    //this.componentDidMount();
+    
     return (
       
       <svg className="knight-" id="canvas" viewBox="-50 -176 850 430">
         <Sky />
         <Ground />
-        <Dragons />
+        <Dragons randomDragonNumber={this.state.dragonNumber} />
         <Castle />
         <Cannon />
         <Bullet shot={ this.props.shot } />

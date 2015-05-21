@@ -218,7 +218,10 @@ body {
 		animation: bullet-scia 1.5s cubic-bezier(.48,.78,.69,.18);
 	}
 }
-
+#cannon {
+	position: relative;
+	z-index: 9999;
+}
 //castel animations
 .door { stroke-width: 10px; stroke-dashoffset: 0px; }
 svg {
