@@ -14,7 +14,6 @@ let BoxGameComponent = React.createClass({
     var self = this;
     this.setState({
       fired: true
-      
     });
     setTimeout(function () {
         this.setState({

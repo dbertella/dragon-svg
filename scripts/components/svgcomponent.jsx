@@ -7,32 +7,40 @@ import Cannon from './svgcomponents/cannoncomponent.jsx'
 import Hearts from './svgcomponents/heartscomponent.jsx'
 import Bullet from './svgcomponents/bulletcomponent.jsx'
 
+
 let SvgComponent = React.createClass({
   
   getInitialState: function () {
     return {
-      dragonNumber: Math.floor(Math.random() * 5)
+      dragonNumber: Math.floor(Math.random() * 5),
+      isFlying: true
     }
   },
 
-  componentDidMount: function () {
-    setTimeout(function () {
+  getRandomDragon: function () {
+    this.setState({ isFlying: false });
+    setTimeout( () => {
       this.setState({
-        dragonNumber: Math.floor(Math.random() * 5)
+        dragonNumber: Math.floor(Math.random() * 5),
+        isFlying: true
       });
-    }.bind(this), 5000);
+      this.getRandomDragon();
+    }, 5500);
   },
 
+  componentWillMount: function () {
+    this.getRandomDragon();
+  },
+ 
   render: function() {
 
-    //this.componentDidMount();
     
     return (
       
       <svg className="knight-" id="canvas" viewBox="-50 -176 850 430">
         <Sky />
         <Ground />
-        <Dragons randomDragonNumber={this.state.dragonNumber} />
+        <Dragons randomDragonNumber={this.state.dragonNumber} shouldFly={this.state.isFlying} />
         <Castle />
         <Cannon />
         <Bullet shot={ this.props.shot } />
