@@ -25,49 +25,24 @@ var dragons = [
 
 
 let DragonComponent = React.createClass({
-	
 
-	getInitialState: function () {
-		return {
-			isFlying: 'fly'
-		};
-	},
-	componentWillReceiveProps: function () {
-
-		
-		if (this.props.shouldFly) {
-			setTimeout(() => {
-				this.setState({isFlying: 'fly'});
-			}, 200);
-		} else {
-			this.setState({isFlying: ''});
-		}
-		
-	},
-	// componentDidUpdate: function () {
-	// 	this.setState({
-	// 		classToFly: 'fly'
-	// 	});
-	// },
 	render: function () {
+		var randomDragonNumber = this.props.randomDragonNumber,
+			dragon;
+		
+		if (randomDragonNumber != null) {
+			dragon = <g>
+					<path id={ dragons[randomDragonNumber].name } className="fly" fill="none" stroke="#A8240B" strokeWidth="8" strokeLinecap="round" stroke-miterlimit="10" d={dragons[randomDragonNumber].path} />
+					<path id={ dragons[randomDragonNumber].name + '-scia'} className="fly" fill="none" stroke="#86FCFF" strokeWidth="15" strokeLinecap="round" stroke-miterlimit="10" d={dragons[randomDragonNumber].path} />
+				</g>;
+			console.log(dragons[randomDragonNumber].name, randomDragonNumber)
+		} else {
+			dragon = <g></g>;
+			console.log("nullo", randomDragonNumber)
 
-		return (
-			<g>
-				<path id={ dragons[this.props.randomDragonNumber].name } className={this.state.isFlying} fill="none" stroke="#A8240B" strokeWidth="8" strokeLinecap="round" stroke-miterlimit="10" d={dragons[this.props.randomDragonNumber].path} />
-				<path id={ dragons[this.props.randomDragonNumber].name + '-scia'} className={this.state.isFlying} fill="none" stroke="#86FCFF" strokeWidth="15" strokeLinecap="round" stroke-miterlimit="10" d={dragons[this.props.randomDragonNumber].path} />
-			</g>
-		);
-		// return (
-		// 	<g>{dragons.map(function (d) {
-		// 		return (
-		// 			<g>
-		// 				<path id={ d.name } className={this.state.classToFly} fill="none" stroke="#A8240B" strokeWidth="8" strokeLinecap="round" stroke-miterlimit="10" d={d.path} />
-		// 				<path id={ d.name + '-scia'} className={this.state.classToFly} fill="none" stroke="#86FCFF" strokeWidth="15" strokeLinecap="round" stroke-miterlimit="10" d={d.path} />
-		// 			</g>
-		// 		);
-				
-		// 	}, this)}</g>
-		// );
+		}
+
+		return dragon;
 	}
 });
 
